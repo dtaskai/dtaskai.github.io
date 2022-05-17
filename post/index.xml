@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/post/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on dtaskai&#39;s blog</title>
+    <link>https://dtaskai.me/post/</link>
+    <description>Recent content in Posts on dtaskai&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 May 2022 19:57:47 +0200</lastBuildDate><atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; Copyright 2022, Your Dominik Táskai</copyright>
+    <lastBuildDate>Tue, 17 May 2022 19:57:47 +0200</lastBuildDate><atom:link href="https://dtaskai.me/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mypost</title>
-      <link>http://example.org/post/mypost/</link>
+      <link>https://dtaskai.me/post/mypost/</link>
       <pubDate>Tue, 17 May 2022 19:57:47 +0200</pubDate>
       
-      <guid>http://example.org/post/mypost/</guid>
+      <guid>https://dtaskai.me/post/mypost/</guid>
       <description>Test post </description>
     </item>
     
