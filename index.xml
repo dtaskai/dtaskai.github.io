@@ -9,6 +9,15 @@
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
     <lastBuildDate>Tue, 17 May 2022 19:57:47 +0200</lastBuildDate><atom:link href="https://dtaskai.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>https://dtaskai.me/about/</link>
+      <pubDate>Wed, 18 May 2022 19:58:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/about/</guid>
+      <description>Hi</description>
+    </item>
+    
+    <item>
       <title>Mypost</title>
       <link>https://dtaskai.me/post/mypost/</link>
       <pubDate>Tue, 17 May 2022 19:57:47 +0200</pubDate>
