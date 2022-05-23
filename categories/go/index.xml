@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dtaskai&#39;s blog</title>
-    <link>https://dtaskai.me/</link>
-    <description>Recent content on dtaskai&#39;s blog</description>
+    <title>go on dtaskai&#39;s blog</title>
+    <link>https://dtaskai.me/categories/go/</link>
+    <description>Recent content in go on dtaskai&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Mon, 23 May 2022 15:08:33 +0200</lastBuildDate><atom:link href="https://dtaskai.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 May 2022 15:08:33 +0200</lastBuildDate><atom:link href="https://dtaskai.me/categories/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Timezone pitfall in Go and Docker</title>
       <link>https://dtaskai.me/post/go-timezone-docker/</link>
@@ -15,17 +15,6 @@
       
       <guid>https://dtaskai.me/post/go-timezone-docker/</guid>
       <description>While working on a project I received a bug report that there is a 1 hour difference between dates at one part of my service and after an hour of trying to reproduce to issue, we came to the conclusion that the reason why it was so hard to track down was that our GKE cluster operates in the UTC timezone, while my local environment (and even our production cluster) is in the Europe/Budapest timezone.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://dtaskai.me/about/</link>
-      <pubDate>Wed, 18 May 2022 19:58:39 +0200</pubDate>
-      
-      <guid>https://dtaskai.me/about/</guid>
-      <description>Hi I&amp;rsquo;m a tech enthusiast currently working as a Junior DevOps Engineer in sunny Hungary (not really). The goal of this site is to share my findings, tips and struggles that I run into during my journey on becoming a better engineer.
-My tech stack is basically whatever I come across and interests me, but I write most things in Go.
-To contact me use any of the options on the top of the page.</description>
     </item>
     
   </channel>

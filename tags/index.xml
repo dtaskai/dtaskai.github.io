@@ -6,6 +6,34 @@
     <description>Recent content in Tags on dtaskai&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
+    <lastBuildDate>Mon, 23 May 2022 15:08:33 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://dtaskai.me/tags/docker/</link>
+      <pubDate>Mon, 23 May 2022 15:08:33 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://dtaskai.me/tags/go/</link>
+      <pubDate>Mon, 23 May 2022 15:08:33 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>timezone</title>
+      <link>https://dtaskai.me/tags/timezone/</link>
+      <pubDate>Mon, 23 May 2022 15:08:33 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/timezone/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

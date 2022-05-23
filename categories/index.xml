@@ -6,6 +6,25 @@
     <description>Recent content in Categories on dtaskai&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright><atom:link href="https://dtaskai.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
+    <lastBuildDate>Mon, 23 May 2022 15:08:33 +0200</lastBuildDate><atom:link href="https://dtaskai.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://dtaskai.me/categories/go/</link>
+      <pubDate>Mon, 23 May 2022 15:08:33 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://dtaskai.me/categories/programming/</link>
+      <pubDate>Mon, 23 May 2022 15:08:33 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/categories/programming/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

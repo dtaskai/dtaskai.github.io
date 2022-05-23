@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Tue, 17 May 2022 19:57:47 +0200</lastBuildDate><atom:link href="https://dtaskai.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 May 2022 15:08:33 +0200</lastBuildDate><atom:link href="https://dtaskai.me/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mypost</title>
-      <link>https://dtaskai.me/post/mypost/</link>
-      <pubDate>Tue, 17 May 2022 19:57:47 +0200</pubDate>
+      <title>Timezone pitfall in Go and Docker</title>
+      <link>https://dtaskai.me/post/go-timezone-docker/</link>
+      <pubDate>Mon, 23 May 2022 15:08:33 +0200</pubDate>
       
-      <guid>https://dtaskai.me/post/mypost/</guid>
-      <description>Test post </description>
+      <guid>https://dtaskai.me/post/go-timezone-docker/</guid>
+      <description>While working on a project I received a bug report that there is a 1 hour difference between dates at one part of my service and after an hour of trying to reproduce to issue, we came to the conclusion that the reason why it was so hard to track down was that our GKE cluster operates in the UTC timezone, while my local environment (and even our production cluster) is in the Europe/Budapest timezone.</description>
     </item>
     
   </channel>

@@ -2,20 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dtaskai.me/about/</loc>
-    <lastmod>2022-05-18T19:58:39+02:00</lastmod>
+    <loc>https://dtaskai.me/categories/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/docker/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/</loc>
-    <lastmod>2022-05-17T19:57:47+02:00</lastmod>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
   </url><url>
-    <loc>https://dtaskai.me/post/mypost/</loc>
-    <lastmod>2022-05-17T19:57:47+02:00</lastmod>
+    <loc>https://dtaskai.me/tags/go/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/categories/go/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/post/</loc>
-    <lastmod>2022-05-17T19:57:47+02:00</lastmod>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
   </url><url>
-    <loc>https://dtaskai.me/categories/</loc>
+    <loc>https://dtaskai.me/categories/programming/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/tags/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/timezone/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/post/go-timezone-docker/</loc>
+    <lastmod>2022-05-23T15:08:33+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/about/</loc>
+    <lastmod>2022-05-18T19:58:39+02:00</lastmod>
   </url>
 </urlset>
