@@ -128,13 +128,16 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;./svc&#34;</span>]<span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><p>Who doesn&rsquo;t like multistage Dockerfile, am I right?</p>
 <h2 id="solution">Solution</h2>
-<p>There are 2 ways of fixing this issue (as far as I know):</p>
+<p>There are 3 ways of fixing this issue as described in <code>time.LoadLocation</code>&rsquo;s docs:</p>
 <ul>
 <li>
 <p>Using an <code>alpine</code> image instead of the <code>scratch</code> image for running the app and adding the <code>RUN apk add --no-cache tzdata</code> line to our second stage</p>
 </li>
 <li>
-<p>Or if you are hellbent on minimizing your Docker image size as much as possible, copy the zoneinfo zip file to the scratch environment by hand in the Dockerfile</p>
+<p>Or if you are hellbent on minimizing your Docker image size as much as possible, copy the zoneinfo zip file or directory to the scratch environment by hand in the Dockerfile and setting the path to it in the ZONEINFO environment variable</p>
+</li>
+<li>
+<p>Importing the &ldquo;time/tzdata&rdquo; package with the blank identifier</p>
 </li>
 </ul>
 
