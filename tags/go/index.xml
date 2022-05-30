@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Mon, 23 May 2022 15:08:33 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 May 2022 15:29:21 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cancel a launched goroutine</title>
+      <link>https://dtaskai.me/post/go-cancel-a-launched-goroutine/</link>
+      <pubDate>Mon, 30 May 2022 15:29:21 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/post/go-cancel-a-launched-goroutine/</guid>
+      <description>One of the more challenging tasks in the past few months was for me was to find a way to implement the following feature:
+After a set amount of seconds (provided in the form of an environment variable) launch a goroutine which sends control data to another service with a way to cancel the whole process in case of an external event. If you come from perhaps a Java background then this task seems pretty trivial, you &amp;ldquo;just&amp;rdquo; have to call the interrupt() function on your thread, but with goroutines this is not an option.</description>
+    </item>
+    
     <item>
       <title>Timezone pitfall in Go and Docker</title>
       <link>https://dtaskai.me/post/go-timezone-docker/</link>
