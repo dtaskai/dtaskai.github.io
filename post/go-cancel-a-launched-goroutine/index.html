@@ -94,7 +94,8 @@
 
         <article>
             <p>One of the more challenging tasks in the past few months was for me was to find a way to implement the following feature:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>After a set amount of seconds (provided in the form of an environment variable) launch a goroutine which sends control data to another service with a way to cancel the whole process in case of an external event.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>After a set amount of seconds (provided in the form of an environment variable) launch a goroutine which 
+</span></span><span style="display:flex;"><span>sends control data to another service with a way to cancel the whole process in case of an external event.
 </span></span></code></pre></div><p>If you come from perhaps a Java background then this task seems pretty trivial, you &ldquo;just&rdquo; have to call the <code>interrupt()</code> function on your thread, but with goroutines this is not an option.</p>
 <p>Luckily Go provides a lot of great synchronization primitives which allowed me to produce the following solution:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Create a derived context from context.Background()
