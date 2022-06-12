@@ -2,19 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dtaskai.me/post/go-cancel-a-launched-goroutine/</loc>
-    <lastmod>2022-05-30T15:29:21+02:00</lastmod>
-  </url><url>
     <loc>https://dtaskai.me/categories/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/gatekeeper/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/categories/gatekeeper/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/ingress/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/kubernetes/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/categories/kubernetes/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/linkerd/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/mtls/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/nginx/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/post/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/service-mesh/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/categories/service-mesh/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/tags/</loc>
+    <lastmod>2022-06-12T10:25:39+02:00</lastmod>
+  </url><url>
+    <loc>https://dtaskai.me/post/go-cancel-a-launched-goroutine/</loc>
     <lastmod>2022-05-30T15:29:21+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/tags/context/</loc>
     <lastmod>2022-05-30T15:29:21+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/tags/docker/</loc>
-    <lastmod>2022-05-30T15:29:21+02:00</lastmod>
-  </url><url>
-    <loc>https://dtaskai.me/</loc>
     <lastmod>2022-05-30T15:29:21+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/tags/go/</loc>
@@ -26,13 +65,7 @@
     <loc>https://dtaskai.me/tags/goroutine/</loc>
     <lastmod>2022-05-30T15:29:21+02:00</lastmod>
   </url><url>
-    <loc>https://dtaskai.me/post/</loc>
-    <lastmod>2022-05-30T15:29:21+02:00</lastmod>
-  </url><url>
     <loc>https://dtaskai.me/categories/programming/</loc>
-    <lastmod>2022-05-30T15:29:21+02:00</lastmod>
-  </url><url>
-    <loc>https://dtaskai.me/tags/</loc>
     <lastmod>2022-05-30T15:29:21+02:00</lastmod>
   </url><url>
     <loc>https://dtaskai.me/tags/timezone/</loc>

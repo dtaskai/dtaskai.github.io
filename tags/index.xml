@@ -7,7 +7,70 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Mon, 30 May 2022 15:29:21 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jun 2022 10:25:39 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gatekeeper</title>
+      <link>https://dtaskai.me/tags/gatekeeper/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/gatekeeper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ingress</title>
+      <link>https://dtaskai.me/tags/ingress/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/ingress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://dtaskai.me/tags/kubernetes/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linkerd</title>
+      <link>https://dtaskai.me/tags/linkerd/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/linkerd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mtls</title>
+      <link>https://dtaskai.me/tags/mtls/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/mtls/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://dtaskai.me/tags/nginx/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>service mesh</title>
+      <link>https://dtaskai.me/tags/service-mesh/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/service-mesh/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>context</title>
       <link>https://dtaskai.me/tags/context/</link>

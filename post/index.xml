@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Mon, 30 May 2022 15:29:21 +0200</lastBuildDate><atom:link href="https://dtaskai.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jun 2022 10:25:39 +0200</lastBuildDate><atom:link href="https://dtaskai.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mTLS enforcement with OPA Gatekeeper</title>
+      <link>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</guid>
+      <description>Due to internal policies it might be mandatory to only allow mTLS-protected traffic inside your cluster between your services. To break this down into steps that can be easily implemented we need:
+ a way to enable mTLS in the cluster, for this we are going to use Linkerd an Ingress Controller, since Linkerd does not provide one by default, the choice here is going to be the NGINX Ingress Controller an approach that lets us ensure that every new service (be it a Deployment, Statefulset, DaemonSet or ReplicaSet), gets automatically meshed and thus enables mTLS traffic to and from the aforementioned service, the final piece to our puzzle is going to be one of OPA Gatekeeper&amp;rsquo;s new mutating CRDs.</description>
+    </item>
+    
     <item>
       <title>Cancel a launched goroutine</title>
       <link>https://dtaskai.me/post/go-cancel-a-launched-goroutine/</link>

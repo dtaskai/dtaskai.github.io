@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en"><head>
+    <title>mTLS enforcement with OPA Gatekeeper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="How to enforce mutual TLS in your Kubernetes cluster with OPA Gatekeeper, Linkerd and NGINX Ingress Controller" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/pfp.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Dominik Táskai
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Your average engineer
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../post/" title="Posts">Posts</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../categories/" title="Categories">Categories</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/dtaskai" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://linkedin.com/in/dtaskai" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="dtaskai@pm.me" target="_blank">
+                            <i class="fas fa-at fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-2">
+        <div class="mb-3">
+            <h3 class="mb-0">mTLS enforcement with OPA Gatekeeper</h3>
+            
+            <small class="text-muted">Published June 12, 2022</small>
+        </div>
+
+        <article>
+            <p>Due to internal policies it might be mandatory to only allow mTLS-protected traffic inside your cluster between your services. To break this down into steps that can be easily implemented we need:</p>
+<ul>
+<li>a way to enable mTLS in the cluster, for this we are going to use <a href="https://linkerd.io/">Linkerd</a></li>
+<li>an Ingress Controller, since Linkerd does not provide one by default, the choice here is going to be the <a href="https://kubernetes.github.io/ingress-nginx/">NGINX Ingress Controller</a></li>
+<li>an approach that lets us ensure that every new service (be it a Deployment, Statefulset, DaemonSet or ReplicaSet), gets automatically meshed and thus enables mTLS traffic to and from the aforementioned service, the final piece to our puzzle is going to be one of <a href="https://open-policy-agent.github.io/gatekeeper/website/docs/">OPA Gatekeeper</a>&rsquo;s new mutating CRDs.</li>
+</ul>
+<h2 id="linkerd">Linkerd</h2>
+<p>The installation of Linkerd is pretty straighforward and can easily be done by following the installation <a href="https://linkerd.io/2.11/getting-started/">docs</a>, so I won&rsquo;t be going through it here.</p>
+<h2 id="nginx-ingress-controller">NGINX Ingress Controller</h2>
+<p>The tricky part is meshing the Ingress Controller and the Ingress resources themselves. It is important to note that most Ingress Controllers select the endpoints themselves and do not pass the Services, just the corresponding Pod IPs and ports. This is also the case for the NGINX Ingress Controller: to avoid reloads on Endpoint changes, every time an endpoint changes the controller gets the endpoints from all the services and stores those endpoints in a shared memory zone and whenever a request comes in it picks one of the endpoints through a load balancing algorithm.</p>
+<p>The problem with this approach is that to allow Linkerd to get route-based metrics and traffic splitting it needs the Service IP and port, not just the individual Pod IP and ports.</p>
+<p>To skip this endpoint selection, you can just add the <code>nginx.ingress.kubernetes.io/service-upstream: &quot;true&quot;</code> annotation to your Ingress resources.</p>
+<p>To mesh the Controllers themselves you need to add the <code>linkerd.io/inject: enabled</code> annotation to the Controller deployment and if you are deploying the NGINX Ingress Controller through a Helm chart then you have to add the annotation to the Deployment in the <code>values.yaml</code> like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">controller</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">podAnnotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">linkerd.io/inject</span>: <span style="color:#ae81ff">enabled</span>
+</span></span></code></pre></div><h2 id="opa-gatekeeper">OPA Gatekeeper</h2>
+<p>Just like the installation of Linkerd, this can also be done pretty easily following the <a href="https://open-policy-agent.github.io/gatekeeper/website/docs/install">docs</a> of Gatekeeper, so we will focus on creating our CRD objects.</p>
+<p>Note that the mutation CRD feature of Gatekeeper is currently (as of writing this) in beta, but I haven&rsquo;t had any issues with them yet.</p>
+<p>The CRD we are going to use to enforce automatic meshing of services is the <code>AssignMetadata</code> CRD, which triggers the event of modifying the metadata section of the given resource upon its creation.</p>
+<p>In our AssignMetadata object we add the <code>linkerd.io/inject: enabled</code> annotation to every ReplicaSet, Deployment, DaemonSet and StatefulSet that is going to created in the given namespace, thus automatically meshing the services and enforcing mTLS between them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">mutations.gatekeeper.sh/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">AssignMetadata</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx-annotation-assigner</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">match</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scope</span>: <span style="color:#ae81ff">Namespaced</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kinds</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">apiGroups</span>: [<span style="color:#e6db74">&#34;apps&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kinds</span>: [<span style="color:#e6db74">&#34;ReplicaSet&#34;</span>, <span style="color:#e6db74">&#34;Deployment&#34;</span>, <span style="color:#e6db74">&#34;DaemonSet&#34;</span>, <span style="color:#e6db74">&#34;StatefulSet&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">location</span>: <span style="color:#e6db74">&#39;metadata.annotations.&#34;linkerd.io/inject&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">assign</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;enabled&#34;</span>
+</span></span></code></pre></div><h2 id="sources">Sources:</h2>
+<ul>
+<li>Linkerd docs: <a href="https://linkerd.io/2.11/getting-started/">https://linkerd.io/2.11/getting-started/</a></li>
+<li>OPA Gatekeeper docs: <a href="https://open-policy-agent.github.io/gatekeeper/website/docs/">https://open-policy-agent.github.io/gatekeeper/website/docs/</a></li>
+<li>NGINX Ingress Controller docs: <a href="https://kubernetes.github.io/ingress-nginx/">https://kubernetes.github.io/ingress-nginx/</a></li>
+</ul>
+
+        </article>
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2022, Dominik Táskai
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

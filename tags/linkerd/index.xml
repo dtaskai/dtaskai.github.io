@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linkerd on dtaskai&#39;s blog</title>
+    <link>https://dtaskai.me/tags/linkerd/</link>
+    <description>Recent content in linkerd on dtaskai&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
+    <lastBuildDate>Sun, 12 Jun 2022 10:25:39 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/linkerd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mTLS enforcement with OPA Gatekeeper</title>
+      <link>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</link>
+      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</guid>
+      <description>Due to internal policies it might be mandatory to only allow mTLS-protected traffic inside your cluster between your services. To break this down into steps that can be easily implemented we need:
+ a way to enable mTLS in the cluster, for this we are going to use Linkerd an Ingress Controller, since Linkerd does not provide one by default, the choice here is going to be the NGINX Ingress Controller an approach that lets us ensure that every new service (be it a Deployment, Statefulset, DaemonSet or ReplicaSet), gets automatically meshed and thus enables mTLS traffic to and from the aforementioned service, the final piece to our puzzle is going to be one of OPA Gatekeeper&amp;rsquo;s new mutating CRDs.</description>
+    </item>
+    
+  </channel>
+</rss>
