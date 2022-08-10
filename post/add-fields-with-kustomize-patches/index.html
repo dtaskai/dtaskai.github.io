@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en"><head>
+    <title>Add fields with Kustomize patches without overwriting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="How to add and set fields inside your manifests with Kustomize patches without overwriting already present ones" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/pfp.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Dominik Táskai
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Your average engineer
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../post/" title="Posts">Posts</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../categories/" title="Categories">Categories</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/dtaskai" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://linkedin.com/in/dtaskai" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/dtaskai" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="dtaskai@pm.me" target="_blank">
+                            <i class="fas fa-at fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-2">
+        <div class="mb-3">
+            <h3 class="mb-0">Add fields with Kustomize patches without overwriting</h3>
+            
+            <small class="text-muted">Published August 10, 2022</small>
+        </div>
+
+        <article>
+            <p>The reason for this post is that we ran into this issue a few days ago and could not find sufficent information on how to set fields without overwriting them using Kustomize, so here it is:</p>
+<p>To patch resources using Kustomize with either a strategic merge patch or a JSON6902 patch you have to add a <code>target</code> selector and a <code>patch</code> document to your Kustomization resource.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">kustomize.config.k8s.io/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Kustomization</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">patch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">namespace-to-patch</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">patches</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">patch</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - op: add
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          path: /spec/template/spec/securityContext
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          value:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            runAsUser: 10000
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            fsGroup: 1337
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - op: add
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          path: /spec/template/spec/containers/0/securityContext
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          value:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            readOnlyRootFilesystem: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            allowPrivilegeEscalation: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            runAsNonRoot: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            capabilities:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              drop:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                - ALL        </span>        
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">target</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">apps</span>
+</span></span></code></pre></div><p>The problem with the above JSON6902 patches is that they are going to completely replace any other values inside your <code>securityContext</code>, instead of appending/adding the new values to them. If you want to replace them, then of course it is fine, but in my case we had to set a few other values next to the ones already present.</p>
+<p>The way you can accomplish adding/appending values is the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">patches</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">patch</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - op: add
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      # First we create the `capabilities` field, to which we give the value of `drop` with a 1 element list containing ˙&#34;ALL&#34; ̇
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      path: /spec/template/spec/containers/0/securityContext/capabilities
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      value: 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        drop: [&#34;ALL&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - op: add
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      path: /spec/template/spec/containers/0/securityContext/readOnlyRootFilesystem
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      value: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - op: add
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      path: /spec/template/spec/containers/0/securityContext/allowPrivilegeEscalation
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      value: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - op: add
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      path: /spec/template/spec/containers/0/securityContext/runAsNonRoot
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      value: true</span>    
+</span></span></code></pre></div><p>By referencing fields which are currently non-existent in your manifests e.g: <code>readOnlyRootFilesystem, allowPrivilegeEscalation</code> and giving them values, they are going to be created inside the newly built manifests next to the already present ones, but of course the downside of this is that a typo could easily ruin your manifests.</p>
+
+        </article>
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2022, Dominik Táskai
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

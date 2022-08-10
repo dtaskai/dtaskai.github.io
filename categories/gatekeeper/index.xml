@@ -15,7 +15,7 @@
       
       <guid>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</guid>
       <description>Due to internal policies it might be mandatory to only allow mTLS-protected traffic inside your cluster between your services. To break this down into steps that can be easily implemented we need:
- a way to enable mTLS in the cluster, for this we are going to use Linkerd an Ingress Controller, since Linkerd does not provide one by default, the choice here is going to be the NGINX Ingress Controller an approach that lets us ensure that every new service (be it a Deployment, Statefulset, DaemonSet or ReplicaSet), gets automatically meshed and thus enables mTLS traffic to and from the aforementioned service, the final piece to our puzzle is going to be one of OPA Gatekeeper&amp;rsquo;s new mutating CRDs.</description>
+a way to enable mTLS in the cluster, for this we are going to use Linkerd an Ingress Controller, since Linkerd does not provide one by default, the choice here is going to be the NGINX Ingress Controller an approach that lets us ensure that every new service (be it a Deployment, Statefulset, DaemonSet or ReplicaSet), gets automatically meshed and thus enables mTLS traffic to and from the aforementioned service, the final piece to our puzzle is going to be one of OPA Gatekeeper&amp;rsquo;s new mutating CRDs.</description>
     </item>
     
   </channel>

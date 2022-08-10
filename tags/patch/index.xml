@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kubernetes on dtaskai&#39;s blog</title>
-    <link>https://dtaskai.me/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on dtaskai&#39;s blog</description>
+    <title>patch on dtaskai&#39;s blog</title>
+    <link>https://dtaskai.me/tags/patch/</link>
+    <description>Recent content in patch on dtaskai&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Wed, 10 Aug 2022 16:58:29 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 16:58:29 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/patch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add fields with Kustomize patches without overwriting</title>
       <link>https://dtaskai.me/post/add-fields-with-kustomize-patches/</link>
@@ -17,16 +17,6 @@
       <description>The reason for this post is that we ran into this issue a few days ago and could not find sufficent information on how to set fields without overwriting them using Kustomize, so here it is:
 To patch resources using Kustomize with either a strategic merge patch or a JSON6902 patch you have to add a target selector and a patch document to your Kustomization resource.
 apiVersion: kustomize.config.k8s.io/v1beta1 kind: Kustomization metadata: name: patch namespace: namespace-to-patch spec: patches: - patch: | - op: add path: /spec/template/spec/securityContext value: runAsUser: 10000 fsGroup: 1337 - op: add path: /spec/template/spec/containers/0/securityContext value: readOnlyRootFilesystem: true allowPrivilegeEscalation: false runAsNonRoot: true capabilities: drop: - ALL target: kind: Deployment namespace: apps The problem with the above JSON6902 patches is that they are going to completely replace any other values inside your securityContext, instead of appending/adding the new values to them.</description>
-    </item>
-    
-    <item>
-      <title>mTLS enforcement with OPA Gatekeeper</title>
-      <link>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</link>
-      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
-      
-      <guid>https://dtaskai.me/post/mtls-enforcement-with-gatekeeper/</guid>
-      <description>Due to internal policies it might be mandatory to only allow mTLS-protected traffic inside your cluster between your services. To break this down into steps that can be easily implemented we need:
-a way to enable mTLS in the cluster, for this we are going to use Linkerd an Ingress Controller, since Linkerd does not provide one by default, the choice here is going to be the NGINX Ingress Controller an approach that lets us ensure that every new service (be it a Deployment, Statefulset, DaemonSet or ReplicaSet), gets automatically meshed and thus enables mTLS traffic to and from the aforementioned service, the final piece to our puzzle is going to be one of OPA Gatekeeper&amp;rsquo;s new mutating CRDs.</description>
     </item>
     
   </channel>

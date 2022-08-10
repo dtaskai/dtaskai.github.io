@@ -7,7 +7,70 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Sun, 12 Jun 2022 10:25:39 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 16:58:29 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>append</title>
+      <link>https://dtaskai.me/tags/append/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/append/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>json6902</title>
+      <link>https://dtaskai.me/tags/json6902/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/json6902/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://dtaskai.me/tags/kubernetes/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kustomize</title>
+      <link>https://dtaskai.me/tags/kustomize/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/kustomize/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>patch</title>
+      <link>https://dtaskai.me/tags/patch/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/patch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>securitycontext</title>
+      <link>https://dtaskai.me/tags/securitycontext/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/securitycontext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strategic merge</title>
+      <link>https://dtaskai.me/tags/strategic-merge/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/strategic-merge/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gatekeeper</title>
       <link>https://dtaskai.me/tags/gatekeeper/</link>
@@ -23,15 +86,6 @@
       <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
       
       <guid>https://dtaskai.me/tags/ingress/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://dtaskai.me/tags/kubernetes/</link>
-      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
-      
-      <guid>https://dtaskai.me/tags/kubernetes/</guid>
       <description></description>
     </item>
     

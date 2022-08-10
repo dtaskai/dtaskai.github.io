@@ -7,22 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Sun, 12 Jun 2022 10:25:39 +0200</lastBuildDate><atom:link href="https://dtaskai.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 16:58:29 +0200</lastBuildDate><atom:link href="https://dtaskai.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubernetes</title>
+      <link>https://dtaskai.me/categories/kubernetes/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kustomize</title>
+      <link>https://dtaskai.me/categories/kustomize/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/categories/kustomize/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shorts</title>
+      <link>https://dtaskai.me/categories/shorts/</link>
+      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/categories/shorts/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gatekeeper</title>
       <link>https://dtaskai.me/categories/gatekeeper/</link>
       <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
       
       <guid>https://dtaskai.me/categories/gatekeeper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://dtaskai.me/categories/kubernetes/</link>
-      <pubDate>Sun, 12 Jun 2022 10:25:39 +0200</pubDate>
-      
-      <guid>https://dtaskai.me/categories/kubernetes/</guid>
       <description></description>
     </item>
     
