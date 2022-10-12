@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Wed, 10 Aug 2022 16:58:29 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Oct 2022 17:57:15 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>basics</title>
+      <link>https://dtaskai.me/tags/basics/</link>
+      <pubDate>Wed, 12 Oct 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpu</title>
+      <link>https://dtaskai.me/tags/cpu/</link>
+      <pubDate>Wed, 12 Oct 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/cpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://dtaskai.me/tags/kubernetes/</link>
+      <pubDate>Wed, 12 Oct 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>limits</title>
+      <link>https://dtaskai.me/tags/limits/</link>
+      <pubDate>Wed, 12 Oct 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/limits/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>append</title>
       <link>https://dtaskai.me/tags/append/</link>
@@ -23,15 +59,6 @@
       <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
       
       <guid>https://dtaskai.me/tags/json6902/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://dtaskai.me/tags/kubernetes/</link>
-      <pubDate>Wed, 10 Aug 2022 16:58:29 +0200</pubDate>
-      
-      <guid>https://dtaskai.me/tags/kubernetes/</guid>
       <description></description>
     </item>
     

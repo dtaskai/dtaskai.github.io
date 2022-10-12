@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head>
+    <title>1001th K8s CPU limit article</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="1001th article on why you shouldn&#39;t set CPU limits (but with the basics)" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/pfp-cropped.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Dominik Táskai
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Your average engineer
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../post/" title="Posts">Posts</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../categories/" title="Categories">Categories</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/dtaskai" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://linkedin.com/in/dtaskai" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/dtaskai" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="dtaskai@pm.me" target="_blank">
+                            <i class="fas fa-at fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-2">
+        <div class="mb-3">
+            <h3 class="mb-0">1001th K8s CPU limit article</h3>
+            
+            <small class="text-muted">Published October 12, 2022</small>
+        </div>
+
+        <article>
+            <p>If you are somewhat into Kubernetes then you have probably read the previous 1000 articles about why you shouldn not be setting CPU limits, so why should you bother with going through this short post? Well I will try my best to touch on the basics of how the CPU and memory works and how does that affect Kubernetes resource limits.</p>
+<h2 id="cpu-requests">CPU requests</h2>
+<p>To understand what CPU limits do, it is crucial to understand what setting CPU requests does. When you set your CPU request to 1 CPU unit, it does not mean that 1 physical CPU core / 1 virtual core gets reserved for that workload, and no one in the whole universe can take it away from it. Why is that? So how the CPU works is that a core can only work on a single task at a time, but it switches between tasks so quickly, that you do not notice this switching at all (the decision of which task to work on next is made by a scheduling algorithm in the kernel). Now it is obvious that if we assigned a core to every workload then we would quickly run out of resources. What actually happens is when you specify a CPU request for your workload, then that workload is guaranteed to receive that much CPU <strong>time</strong> (and when the CPU is done working on the task it goes on to work on the next one and will eventually circle back to the that task if its not finished yet).</p>
+<p>The main takeaway from the above is that guaranteed does <strong>not</strong> equal reserved and you can not reserve parts of the CPU to only work on one workload, because it has to also work on every other task in the system.</p>
+<h2 id="cpu-limits">CPU limits</h2>
+<p>And now to the question of why setting CPU limits is bad. There are cases when there is some excess CPU time that could be allocated to workloads, and I mean who would say no to that? <strong>But</strong> when you set CPU limits and that excess CPU time added to the current CPU time hits the CPU limit then that excess CPU time, which the process could very well use, is lost forever. When you hit the CPU limit then your process gets throttled and the work on that process is delayed by quite a bit. Note that no process killing is done when the CPU limit is hit.</p>
+<h2 id="memory-requests-and-limits">Memory requests and limits</h2>
+<p>So how is the memory any different and why is setting a memory limit considered to be okay? Memory is treated differently, because once you assign some memory to a process, then contrary to the CPU, it can not be taken away without losing everything inside (slight oversimplification). Pods are assigned the amount of memory they request, but once they exceed the limit, then the process in the Pods containers, which uses the most memory gets killed by the kernel. Setting a memory limit is the safety measure that a process inside the containers does not gobble (gobble gobble) up all the available memory in the system, and killing the process is the killswitch to that.</p>
+<h2 id="summary">Summary</h2>
+<p>As you can see the devil lies in the details of how the CPU and the memory are designed to work in a system. The CPU is designed to work on multiple processes in quick succession, while the memory is designed to stay with one program until it is done running.</p>
+<p>The best practice regarding resource requests and limits is to always set memory requests and limits and always set CPU requests, but not limits for your workloads.</p>
+<p><em>Please note that there are valid use cases for setting CPU limits, especially when it comes to multi-tenant clusters.</em></p>
+
+        </article>
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2022, Dominik Táskai
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

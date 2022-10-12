@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>basics on dtaskai&#39;s blog</title>
+    <link>https://dtaskai.me/tags/basics/</link>
+    <description>Recent content in basics on dtaskai&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
+    <lastBuildDate>Wed, 12 Oct 2022 17:57:15 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1001th K8s CPU limit article</title>
+      <link>https://dtaskai.me/post/1001th-k8s-cpu-limit-article/</link>
+      <pubDate>Wed, 12 Oct 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/post/1001th-k8s-cpu-limit-article/</guid>
+      <description>If you are somewhat into Kubernetes then you have probably read the previous 1000 articles about why you shouldn not be setting CPU limits, so why should you bother with going through this short post? Well I will try my best to touch on the basics of how the CPU and memory works and how does that affect Kubernetes resource limits.
+CPU requests To understand what CPU limits do, it is crucial to understand what setting CPU requests does.</description>
+    </item>
+    
+  </channel>
+</rss>
