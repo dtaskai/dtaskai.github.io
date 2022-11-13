@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en"><head>
+    <title>Overcoming AWS Chatbots Limitations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="How to send custom messages through AWS Chatbot" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/pfp-cropped.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Dominik Táskai
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Your average engineer
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../post/" title="Posts">Posts</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../categories/" title="Categories">Categories</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/dtaskai" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://linkedin.com/in/dtaskai" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/dtaskai" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="dtaskai@pm.me" target="_blank">
+                            <i class="fas fa-at fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-2">
+        <div class="mb-3">
+            <h3 class="mb-0">Overcoming AWS Chatbots Limitations</h3>
+            
+            <small class="text-muted">Published November 13, 2022</small>
+        </div>
+
+        <article>
+            <p><a href="https://aws.amazon.com/chatbot/">AWS Chatbot</a> is a great service, which makes it a lot easier (than it was before with webhooks and stuff) to send notifications from your AWS environment to a Slack channel (it also supports Amazon Chime).</p>
+<p>Through CloudWatch Alarms and EventBridge Event Rules you can make yourself a pretty great alerting infrastructure, with alerts configured to send a message to your Slack channel whenever there is a GuardDuty finding for example.</p>
+<p><img src="../../static/images/guardduty-finding.png" alt="GuardDuty Finding"></p>
+<p>There is just one <!-- raw HTML omitted -->teeny-tiny<!-- raw HTML omitted --> limitation to all this, you can not customize the messages that get sent from the service and kudos to Amazon this is explicitly mentioned in the FAQ:</p>
+<p><img src="../../static/images/chatbot-faq.png" alt="Chatbot FAQ"></p>
+<p>Since the messages are sent to an SNS Topic first and then AWS Chatbot takes the payloads from the Topic, you might be wondering if there is a way to spoof these messages and format them to your liking, the answer is yes, but with limitations.</p>
+<p>Examples of event formats for most services can be found <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html">here</a>, but you can also dig into a specific services documentation to find more thorough examples.</p>
+<p>The following format is what worked in our case (you can take this as is and then modify the <code>detail-type</code> field to your liking):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;bd32e686-148j-6971-ku24-0e2416655gh4l2&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;detail-type&#34;</span>: <span style="color:#e6db74">&#34;&lt;!here&gt; The answer is 42 🚀&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;aws.ecs&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;account&#34;</span>: <span style="color:#e6db74">&#34;123456789012&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;2022-11-10T01:54:34Z&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;region&#34;</span>: <span style="color:#e6db74">&#34;eu-central-1&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;resources&#34;</span>: [],
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;detail&#34;</span>: {}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tom Stroobants has a great <a href="https://stroobants.dev/creating-custom-messages-with-aws-chatbot.html">article</a> on this same topic, but I guess Amazon might have found out about his workaround and patched a few things.</p>
+<p>(One thing that is not mentioned in Toms article is that you can use <a href="https://api.slack.com/reference/surfaces/formatting">Slacks way of formatting text</a> with mentions, links to channels and etc.)</p>
+<p>The current state of this workaround is that only the <code>detail-type</code> field can be used to deliver your customized messages, unlike in Toms article where he also uses the region field. Now if you try modify the region field to anything other than a valid region name, Chatbot fails to pick up and forward the message to your channel.</p>
+<p>The only difference between sources is that some of them use a different icon in the &ldquo;header&rdquo; part of the message, but that might also take some time to get right.</p>
+<p>One great use case we found for this is to send a spoofed message with the AWS SDK to the SNS Topic whenever something goes wrong in our applications, but hopefully everyone can find their use for it.</p>
+
+        </article>
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2022, Dominik Táskai
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

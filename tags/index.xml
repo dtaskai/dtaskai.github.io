@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
-    <lastBuildDate>Wed, 12 Oct 2022 17:57:15 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Nov 2022 17:57:15 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>https://dtaskai.me/tags/aws/</link>
+      <pubDate>Sun, 13 Nov 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chatbot</title>
+      <link>https://dtaskai.me/tags/chatbot/</link>
+      <pubDate>Sun, 13 Nov 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/chatbot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slack</title>
+      <link>https://dtaskai.me/tags/slack/</link>
+      <pubDate>Sun, 13 Nov 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/tags/slack/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>basics</title>
       <link>https://dtaskai.me/tags/basics/</link>

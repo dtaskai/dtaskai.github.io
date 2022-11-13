@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws on dtaskai&#39;s blog</title>
+    <link>https://dtaskai.me/tags/aws/</link>
+    <description>Recent content in aws on dtaskai&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright 2022, Dominik Táskai</copyright>
+    <lastBuildDate>Sun, 13 Nov 2022 17:57:15 +0200</lastBuildDate><atom:link href="https://dtaskai.me/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overcoming AWS Chatbots Limitations</title>
+      <link>https://dtaskai.me/post/overcoming-aws-chatbots-limitations/</link>
+      <pubDate>Sun, 13 Nov 2022 17:57:15 +0200</pubDate>
+      
+      <guid>https://dtaskai.me/post/overcoming-aws-chatbots-limitations/</guid>
+      <description>AWS Chatbot is a great service, which makes it a lot easier (than it was before with webhooks and stuff) to send notifications from your AWS environment to a Slack channel (it also supports Amazon Chime).
+Through CloudWatch Alarms and EventBridge Event Rules you can make yourself a pretty great alerting infrastructure, with alerts configured to send a message to your Slack channel whenever there is a GuardDuty finding for example.</description>
+    </item>
+    
+  </channel>
+</rss>
