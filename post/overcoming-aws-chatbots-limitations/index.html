@@ -101,9 +101,9 @@
         <article>
             <p><a href="https://aws.amazon.com/chatbot/">AWS Chatbot</a> is a great service, which makes it a lot easier (than it was before with webhooks and stuff) to send notifications from your AWS environment to a Slack channel (it also supports Amazon Chime).</p>
 <p>Through CloudWatch Alarms and EventBridge Event Rules you can make yourself a pretty great alerting infrastructure, with alerts configured to send a message to your Slack channel whenever there is a GuardDuty finding for example.</p>
-<p><img src="../../static/images/guardduty-finding.png" alt="GuardDuty Finding"></p>
+<p><img src="../../images/guardduty-finding.png" alt="GuardDuty Finding"></p>
 <p>There is just one <!-- raw HTML omitted -->teeny-tiny<!-- raw HTML omitted --> limitation to all this, you can not customize the messages that get sent from the service and kudos to Amazon this is explicitly mentioned in the FAQ:</p>
-<p><img src="../../static/images/chatbot-faq.png" alt="Chatbot FAQ"></p>
+<p><img src="../../images/chatbot-faq.png" alt="Chatbot FAQ"></p>
 <p>Since the messages are sent to an SNS Topic first and then AWS Chatbot takes the payloads from the Topic, you might be wondering if there is a way to spoof these messages and format them to your liking, the answer is yes, but with limitations.</p>
 <p>Examples of event formats for most services can be found <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html">here</a>, but you can also dig into a specific services documentation to find more thorough examples.</p>
 <p>The following format is what worked in our case (you can take this as is and then modify the <code>detail-type</code> field to your liking):</p>
